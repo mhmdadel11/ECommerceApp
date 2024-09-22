@@ -1,0 +1,44 @@
+﻿@model List<Souq.Models.Product>
+
+<div class="container mt-5 mb-5">
+    @* ده عشان ياخد مسافه م اليمين و الشمال  *@
+
+    <form asp-action="productSearch" asp-controller="Home" method="get">
+        <div class="row">
+            <input type="submit" class="col-sm-2 btn btn-primary" value="Search" />
+            <div class="col-sm-10">
+                <input type="text" name="xname" id="xname" class="form-control" placeholder="Search" />
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Products</h2>
+            <p>We are at your service and provide you with the best products wherever you are, with the possibility of delivery to your home</p>
+        </div>
+        <div class="row gy-4">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box iconbox-blue" style="width: 100% !important;">
+
+                        <img src="../@item.Photo" class="myproductImage" />
+                        <h4><a href="/Home/CurrentProduct/@item.Id">@item.Name</a></h4>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
